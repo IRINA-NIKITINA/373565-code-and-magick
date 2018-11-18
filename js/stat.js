@@ -47,7 +47,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', CLOUD_X + GAP, CLOUD_Y + GAP + FONT_GAP);
 
   var maxTime = getMaxElement(times);
-    
+
   if (maxTime !== null) {
     for (var i = 0; i < names.length; i++) {
       var rectHeight = (BAR_HEIGHT * times[i]) / maxTime;
