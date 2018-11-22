@@ -60,14 +60,14 @@ var getName = function (arrName, arrSurname) {
 };
 
 var renderWizards = function (templ, arr) {
-    var elements = [];
-    for (var i = 0; i < arr.length; i++) {
-      var element = templ.cloneNode(true);
-      element.querySelector('.setup-similar-label').textContent = arr[i].name;
-      element.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
-      element.querySelector('.wizard-eyes').style.fill = arr[i].eyesColor;
-      elements.push(element);
-    }
+  var elements = [];
+  for (var i = 0; i < arr.length; i++) {
+    var element = templ.cloneNode(true);
+    element.querySelector('.setup-similar-label').textContent = arr[i].name;
+    element.querySelector('.wizard-coat').style.fill = arr[i].coatColor;
+    element.querySelector('.wizard-eyes').style.fill = arr[i].eyesColor;
+    elements.push(element);
+  }
   return elements;
 };
 
