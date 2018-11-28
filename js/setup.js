@@ -70,7 +70,6 @@ var getRandInRange = function (min, max) {
 var getName = function (arrName, arrSurname) {
   var name = arrName[getRandInRange(0, arrName.length - 1)];
   var surname = arrSurname[getRandInRange(0, arrSurname.length - 1)];
-  var randomRange = getRandInRange(0, 1);
   return getRandInRange(0, 1) ? (name + ' ' + surname) : (surname + ' ' + name);
 };
 
@@ -142,7 +141,11 @@ var fillForm = function (elementName, inputName, arr) {
   var oldColor = form.querySelector('[name = ' + inputName + ']').value;
   var newColor = arr[getRandInRange(0, arr.length - 1)];
   newColor = getChangeColor(oldColor, newColor, arr);
-  inputName === 'fireball-color' ? elementName.style.background = newColor : elementName.style.fill = newColor;
+  if (inputName === 'fireball-color') {
+    elementName.style.background = newColor;
+  } else {
+    elementName.style.fill = newColor;
+  }
   form.querySelector('[name = ' + inputName + ']').value = newColor;
 };
 
