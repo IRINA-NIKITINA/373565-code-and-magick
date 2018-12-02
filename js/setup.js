@@ -171,6 +171,8 @@ function setupKeyAndMouseBindings() {
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
   var setupUserName = setup.querySelector('.setup-user-name');
+  var coordX = setup.style.left;
+  var coordY = setup.style.top;
 
   var onPopupEscPress = function (evt) {
     if (setupUserName !== document.activeElement) {
@@ -187,6 +189,8 @@ function setupKeyAndMouseBindings() {
 
   var closePopup = function () {
     setup.classList.add('hidden');
+    setup.style.top = coordY;
+    setup.style.left = coordX;
     document.removeEventListener('keydown', onPopupEscPress);
   };
 
