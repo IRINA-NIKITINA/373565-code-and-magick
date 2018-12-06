@@ -2,11 +2,11 @@
 
 (function () {
   var fireballColors = [
-  '#ee4830',
-  '#30a8ee',
-  '#5ce6c0',
-  '#e848d5',
-  '#e6e848'
+    '#ee4830',
+    '#30a8ee',
+    '#5ce6c0',
+    '#e848d5',
+    '#e6e848'
   ];
 
   var setup = document.querySelector('.setup');
@@ -64,4 +64,4 @@
     fillForm(setupFireballWrap, 'fireball-color', fireballColors);
   });
 
-}) ();
+})();

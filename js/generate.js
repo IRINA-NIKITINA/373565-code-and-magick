@@ -92,5 +92,4 @@
     coatsColors: coatsColors,
     eyesColors: eyesColors
   };
-
-}) ();
+})();

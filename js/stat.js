@@ -3,6 +3,7 @@
   var CLOUD_WIDTH = 420;
   var CLOUD_HEIGHT = 270;
   var CLOUD_X = 100;
+  var CLOUD_Y = 10;
   var CLOUD_GAP = 10;
   var GAP = 20;
   var FONT_GAP = 16;
@@ -32,7 +33,7 @@
         maxElement = arr[i];
       }
     }
-   return maxElement;
+    return maxElement;
   };
 
   window.renderStatistics = function (ctx, names, times) {
@@ -67,4 +68,4 @@
       }
     }
   };
-}) ();
+})();

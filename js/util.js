@@ -13,5 +13,4 @@
     ENTER_KEYCODE: ENTER_KEYCODE,
     getRandInRange: getRandInRange
   };
-
-}) ();
+})();
