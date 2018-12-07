@@ -34,10 +34,12 @@
   var setupFireballWrap = form.querySelector('.setup-fireball-wrap');
 
   var onSendForm = function (evt) {
-    window.backend.save(new FormData(form), function (response) {
-      setup.classList.add('hidden');
-  }, window.util.onError);
+    window.backend.save(new FormData(form), onLoad, window.util.onError);
     evt.preventDefault();
+  };
+
+  var onLoad = function () {
+    setup.classList.add('hidden');
   };
 
   var getChangeColor = function (oldColor, newColor, array) {
