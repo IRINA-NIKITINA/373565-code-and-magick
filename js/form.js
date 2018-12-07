@@ -1,6 +1,23 @@
 'use strict';
 
 (function () {
+    var coatsColors = [
+    'rgb(101, 137, 164)',
+    'rgb(241, 43, 107)',
+    'rgb(146, 100, 161)',
+    'rgb(56, 159, 117)',
+    'rgb(215, 210, 55)',
+    'rgb(0, 0, 0)'
+  ];
+
+  var eyesColors = [
+    'black',
+    'red',
+    'blue',
+    'yellow',
+    'green'
+  ];
+
   var fireballColors = [
     '#ee4830',
     '#30a8ee',
@@ -17,9 +34,24 @@
   var setupFireballWrap = form.querySelector('.setup-fireball-wrap');
 
   var onSendForm = function (evt) {
+    window.backend.save(new FormData(form), onLoad, onError);
     evt.preventDefault();
-    form.action = 'https://js.dump.academy/code-and-magick';
-    form.submit();
+  };
+
+  var onLoad = function (response) {
+      setup.classList.add('hidden');
+  };
+
+  var onError = function (errorMessage) {
+    var node = document.createElement('div');
+    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
+    node.style.position = 'absolute';
+    node.style.left = 0;
+    node.style.right = 0;
+    node.style.fontSize = '30px';
+    
+    node.textContent = errorMessage; 
+    document.body.insertAdjacentElement('afterbegin', node);
   };
 
   var getChangeColor = function (oldColor, newColor, array) {
@@ -53,11 +85,11 @@
   });
 
   wizardCoat.addEventListener('click', function () {
-    fillForm(wizardCoat, 'coat-color', window.generate.coatsColors);
+    fillForm(wizardCoat, 'coat-color', coatsColors);
   });
 
   wizardEyes.addEventListener('click', function () {
-    fillForm(wizardEyes, 'eyes-color', window.generate.eyesColors);
+    fillForm(wizardEyes, 'eyes-color', eyesColors);
   });
 
   setupFireballWrap.addEventListener('click', function () {
