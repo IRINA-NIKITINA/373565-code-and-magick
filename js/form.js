@@ -1,7 +1,7 @@
 'use strict';
 
 (function () {
-    var coatsColors = [
+  var coatsColors = [
     'rgb(101, 137, 164)',
     'rgb(241, 43, 107)',
     'rgb(146, 100, 161)',
@@ -34,24 +34,12 @@
   var setupFireballWrap = form.querySelector('.setup-fireball-wrap');
 
   var onSendForm = function (evt) {
-    window.backend.save(new FormData(form), onLoad, onError);
+    window.backend.save(new FormData(form), onLoad, window.util.onError);
     evt.preventDefault();
   };
 
   var onLoad = function (response) {
       setup.classList.add('hidden');
-  };
-
-  var onError = function (errorMessage) {
-    var node = document.createElement('div');
-    node.style = 'z-index: 100; margin: 0 auto; text-align: center; background-color: red;';
-    node.style.position = 'absolute';
-    node.style.left = 0;
-    node.style.right = 0;
-    node.style.fontSize = '30px';
-    
-    node.textContent = errorMessage; 
-    document.body.insertAdjacentElement('afterbegin', node);
   };
 
   var getChangeColor = function (oldColor, newColor, array) {
@@ -95,5 +83,4 @@
   setupFireballWrap.addEventListener('click', function () {
     fillForm(setupFireballWrap, 'fireball-color', fireballColors);
   });
-
 })();
